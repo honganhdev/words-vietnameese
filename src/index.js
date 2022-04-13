@@ -1,10 +1,36 @@
-// @flow
+import express from "express";
+import fs from "fs";
+import path from "path";
 
-/**
- * This function says hello.
- * @param name Some name to say hello for.
- * @returns The hello.
- */
-const sayHello = (name: string = "Haz"): string => `Hello, ${name}!`;
+// eslint-disable-next-line no-underscore-dangle
+const __dirname = path.resolve();
+const app = express();
+const port = 3000;
+app.use(express.static(path.join(__dirname, "public")));
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+// eslint-disable-next-line consistent-return
+app.get("/words/:word", (req, res) => {
+  const dirPath = path.join(__dirname, "src/words.json");
+  const words = JSON.parse(fs.readFileSync(dirPath));
+  const data = req.params;
+  console.log(data.word.toLowerCase());
 
-export default sayHello;
+  const findWords = words.find(
+    item => item.word.toLowerCase() === data.word.toLowerCase()
+  );
+  console.log(findWords);
+  if (!findWords) {
+    return res.send({ success: false, message: "a invalid" });
+  }
+  return res.send({
+    sucess: true,
+    data: findWords
+  });
+});
+
+app.listen(port, () => {
+  // eslint-disable-next-line no-console
+  console.log(`listening on port ${port}`);
+});

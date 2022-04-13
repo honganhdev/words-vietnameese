@@ -10,11 +10,13 @@
     "email": "hazdiego@gmail.com",
     "url": "https://github.com/diegohaz"
   },
+  "type": "module",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
+    "dev": "nodemon src/index.js",
     "test": "jest",
     "coverage": "npm test -- --coverage",
     "postcoverage": "open-cli coverage/lcov-report/index.html",
@@ -44,7 +46,9 @@
   "keywords": [
     "generator-nod"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "express": "4.17.3"
+  },
   "devDependencies": {
     "@babel/cli": "7.4.4",
     "@babel/core": "7.4.5",
@@ -66,6 +70,7 @@
     "husky": "2.4.1",
     "jest": "24.8.0",
     "lint-staged": "8.2.1",
+    "nodemon": "2.0.15",
     "open-cli": "5.0.0",
     "prettier": "1.18.2",
     "rimraf": "2.6.3",
