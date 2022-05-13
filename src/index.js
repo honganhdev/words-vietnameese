@@ -5,7 +5,7 @@ import path from "path";
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = path.resolve();
 const app = express();
-const port = 80;
+const port = 81;
 app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
   res.send("Hello World!");
