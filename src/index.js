@@ -1,11 +1,14 @@
 import express from "express";
 import fs from "fs";
 import path from "path";
+import dotenv from "dotenv";
 
+dotenv.config();
+
+console.log(process.env.PORT);
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = path.resolve();
 const app = express();
-const port = 8080;
 app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -30,7 +33,7 @@ app.get("/words/:word", (req, res) => {
   });
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(`listening on port ${port}`);
+  console.log(`listening on port ${process.env.PORT}`);
 });
