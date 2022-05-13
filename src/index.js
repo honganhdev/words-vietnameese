@@ -11,7 +11,7 @@ const __dirname = path.resolve();
 const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello my name is Rasengan!");
 });
 // eslint-disable-next-line consistent-return
 app.get("/words/:word", (req, res) => {
