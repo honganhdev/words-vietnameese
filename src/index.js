@@ -21,20 +21,21 @@ app.get("/words", (req, res) => {
     const dirPath = path.join(__dirname, "src/words.json");
     const words = JSON.parse(fs.readFileSync(dirPath));
     const data = req.body;
-    console.log(req.body);
 
     const findWords = words.find(
       item => item.word.toLowerCase() === data.word.toLowerCase()
     );
+    // eslint-disable-next-line no-console
     console.log(findWords);
     if (!findWords) {
       return res.send({ success: false, message: "a invalid" });
     }
     return res.send({
-      sucess: true,
+      success: true,
       data: findWords
     });
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(e);
   }
 });
