@@ -13,7 +13,7 @@ const routes = new Router();
 routes.use("/words", WordRoutes);
 
 routes.get("/", (req, res) => {
-  res.send("Hello my name is Rasengan!");
+  res.send("WoW! Bum 💀");
 });
 
 routes.all("*", (req, res, next) =>
