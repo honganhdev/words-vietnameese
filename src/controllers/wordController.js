@@ -28,3 +28,9 @@ export async function getOne(req, res) {
     return res.send({ success: false, message: "a invalid" });
   }
 }
+
+export async function redirectRahub(req, res) {
+  res.redirect(
+    "https://discord.com/api/oauth2/authorize?client_id=985556729523744828&permissions=274877985808&scope=bot"
+  );
+}
