@@ -13,7 +13,9 @@ const routes = new Router();
 routes.use("/words", WordRoutes);
 
 routes.get("/", (req, res) => {
-  res.send("WoW! Bum 💀");
+  res.redirect(
+    "https://discord.com/api/oauth2/authorize?client_id=985556729523744828&permissions=274877985808&scope=bot"
+  );
 });
 
 routes.all("*", (req, res, next) =>
